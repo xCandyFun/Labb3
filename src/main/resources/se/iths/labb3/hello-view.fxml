@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="se.iths.labb3.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labb3.HelloController">
+   <padding>
+      <Insets left="20.0" right="20.0" />
+   </padding>
+   <HBox prefHeight="29.0" prefWidth="560.0" spacing="20.0">
+      <VBox.margin>
+         <Insets bottom="15.0" />
+      </VBox.margin>
+      <ChoiceBox fx:id="forTheShape" prefWidth="150.0" />
+      <ChoiceBox fx:id="forTheColor" prefWidth="150.0" />
+      <ChoiceBox fx:id="forTheSize" prefWidth="150.0" />
+      <Button fx:id="buttonToApply" mnemonicParsing="false" text="Apply" />
+   </HBox>
+   <HBox prefHeight="28.0" prefWidth="560.0" spacing="150.0">
+      <children>
+         <Button mnemonicParsing="false" text="Undo" />
+         <Button mnemonicParsing="false" text="Save" />
+      </children>
+      <VBox.margin>
+         <Insets bottom="10.0" />
+      </VBox.margin>
+      <padding>
+         <Insets left="150.0" />
+      </padding>
+   </HBox>
+   <Pane fx:id="paneIsInTheBack" prefHeight="324.0" prefWidth="560.0">
+      <Canvas fx:id="shapeHome" height="325.0" onMouseClicked="#drawTheShape" width="560.0" />
+   </Pane>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
 </VBox>
