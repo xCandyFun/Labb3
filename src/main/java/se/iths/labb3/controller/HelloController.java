@@ -1,4 +1,4 @@
-package se.iths.labb3;
+package se.iths.labb3.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
