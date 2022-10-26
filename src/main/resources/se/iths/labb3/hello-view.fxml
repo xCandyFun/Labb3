@@ -9,14 +9,13 @@
    <padding>
       <Insets left="20.0" right="20.0" />
    </padding>
-   <HBox prefHeight="29.0" prefWidth="560.0" spacing="20.0">
+   <HBox prefHeight="29.0" prefWidth="560.0" spacing="54.0">
       <VBox.margin>
          <Insets bottom="15.0" />
       </VBox.margin>
       <ChoiceBox fx:id="forTheShape" prefWidth="150.0" />
       <ChoiceBox fx:id="forTheColor" prefWidth="150.0" />
       <ChoiceBox fx:id="forTheSize" prefWidth="150.0" />
-      <Button fx:id="buttonToApply" mnemonicParsing="false" text="Apply" />
    </HBox>
    <HBox prefHeight="28.0" prefWidth="560.0" spacing="150.0">
       <children>
@@ -30,7 +29,7 @@
          <Insets left="150.0" />
       </padding>
    </HBox>
-   <Pane fx:id="paneIsInTheBack" prefHeight="324.0" prefWidth="560.0">
+   <Pane fx:id="paneColor" prefHeight="324.0" prefWidth="560.0">
       <Canvas fx:id="shapeHome" height="325.0" onMouseClicked="#drawTheShape" width="560.0" />
    </Pane>
 
