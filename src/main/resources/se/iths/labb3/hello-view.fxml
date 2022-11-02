@@ -14,7 +14,7 @@
          <Insets bottom="15.0" />
       </VBox.margin>
       <ChoiceBox fx:id="forTheShape" prefWidth="150.0" />
-      <ColorPicker fx:id="colorPicker" />
+      <ColorPicker fx:id="colorPicker"  />
       <ChoiceBox fx:id="forTheSize" prefWidth="150.0" />
    </HBox>
    <HBox prefHeight="28.0" prefWidth="560.0" spacing="150.0">
@@ -28,7 +28,7 @@
       <Button fx:id="saveButton" mnemonicParsing="false" onAction="#OnSaveAction" text="Save" />
    </HBox>
    <Pane fx:id="paneColor" prefHeight="324.0" prefWidth="560.0">
-      <Canvas fx:id="drawOnCanvas" height="325.0" onMouseClicked="#drawTheShape" width="560.0" />
+      <Canvas fx:id="drawOnCanvas" height="324.0" onMouseClicked="#drawTheShape" width="560.0" />
    </Pane>
 
 </VBox>

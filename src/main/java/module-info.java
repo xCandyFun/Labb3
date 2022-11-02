@@ -10,4 +10,6 @@ module se.iths.labb3 {
     opens se.iths.labb3.controller to javafx.fxml;
     exports se.iths.labb3.theBestEnums;
     opens se.iths.labb3.theBestEnums to javafx.fxml;
+    exports se.iths.labb3.daShapes;
+    opens se.iths.labb3.daShapes to javafx.fxml;
 }
