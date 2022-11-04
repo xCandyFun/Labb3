@@ -34,23 +34,39 @@ public class HelloController {
         forTheSize.setItems(Model.sizeList);
         colorPicker.valueProperty().bindBidirectional(model.currentColorProperty());
         context = drawOnCanvas.getGraphicsContext2D();
-        paneColor.setStyle("-fx-background-color: #C0C0C0;");
+        undoButton.disableProperty().bind(Bindings.equal(0, model.to.sizeProperty()));
+        //paneColor.setStyle("-fx-background-color: #C0C0C0;");
     }
 
 
 
     public void drawTheShape(MouseEvent mouseEvent) {
-        Shape shape = Shape.createShape(forTheShape.getValue(), Shape.sizeOfTheShape(forTheSize.getValue()),
-                mouseEvent.getX()-(2.5), mouseEvent.getY()-(2.5),colorPicker.getValue());
-        ObservableList<Shape> somethingShape = FXCollections.observableArrayList(shape);
+        Shape shape = Shape.createShape(forTheShape.getValue(),
+                mouseEvent.getX(), mouseEvent.getY(),Shape.sizeOfTheShape(forTheSize.getValue()),colorPicker.getValue());
+        model.to.add(shape);
+        redraw();
     }
 
 
 
     public void OnUndoAction(ActionEvent actionEvent) {
+        model.to.remove(model.to.size()-1);
+        redraw();
+    }
+
+    private void redraw() {
+        context.setFill(Color.WHITE);
+        context.fillRect(0,0,drawOnCanvas.getWidth(),drawOnCanvas.getHeight());
+        for (Shape shape1: model.to){
+            shape1.drawShape(context);
+        }
     }
 
     public void OnSaveAction(ActionEvent actionEvent) {
     }
+
+    //todo save to svg
+    //todo change color on shape when draw
+    //todo make 2 tests
 
 }

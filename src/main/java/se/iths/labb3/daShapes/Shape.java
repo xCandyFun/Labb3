@@ -1,6 +1,7 @@
 package se.iths.labb3.daShapes;
 
 import javafx.css.Size;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import se.iths.labb3.controller.HelloController;
 import se.iths.labb3.model.Model;
@@ -37,6 +38,10 @@ public class Shape {
         return shapeColor;
     }
 
+    public void drawShape(GraphicsContext context){
+
+    }
+
     public static double sizeOfTheShape(enumSize size){
         if(size == enumSize.SMALL)
             return 50.0;
@@ -48,8 +53,9 @@ public class Shape {
     }
     public static Shape createShape(enumShapes type, double x, double y, double shapeSize, Color color){
         return switch (type){
-            case SQUARE -> new Rectangle(x,y,shapeSize,color);
-            case CIRCLE -> new Circle(x,y, shapeSize, color);
+            case RECTANGLE -> new Rectangle(x,y,shapeSize,color);
+            case CIRCLE -> new Circle(x,y,shapeSize,color);
         };
     }
+
 }
