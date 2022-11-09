@@ -15,7 +15,6 @@ import se.iths.labb3.model.Model;
 import se.iths.labb3.theBestEnums.enumShapes;
 import se.iths.labb3.theBestEnums.enumSize;
 import java.nio.file.Path;
-
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.nio.file.Files;
@@ -44,9 +43,6 @@ public class HelloController {
         undoButton.disableProperty().bind(Bindings.equal(0, model.to.sizeProperty()));
         fc.setInitialDirectory(new File("C:\\Users\\Simon"));
     }
-
-
-
     public void drawTheShape(MouseEvent mouseEvent) {
         Shape shape = Shape.createShape(forTheShape.getValue(),
                 mouseEvent.getX(), mouseEvent.getY(),
@@ -58,7 +54,6 @@ public class HelloController {
         model.to.remove(model.to.size()-1);
         redraw();
     }
-
     private void redraw() {
         context.setFill(Color.WHITE);
         context.fillRect(0,0,drawOnCanvas.getWidth(),drawOnCanvas.getHeight());
@@ -66,8 +61,6 @@ public class HelloController {
             shape1.drawShape(context);
         }
     }
-
-
     public void OnSaveAction(ActionEvent actionEvent) {
         Window stage = vBox.getScene().getWindow();
         fc.setTitle("Save Dialog");
@@ -77,21 +70,6 @@ public class HelloController {
         if( file != null)
             model.saveToFile(file.toPath());
     }
-
+//todo change color on shape when draw
+//todo make 2 tests
 }
-
-
-
-
-
-    //todo save to svg
-    //todo change color on shape when draw
-    //todo make 2 tests
-
-
-
-
-
-
-
-
