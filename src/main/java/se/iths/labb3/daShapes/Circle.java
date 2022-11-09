@@ -16,9 +16,26 @@ public class Circle extends Shape{
     }
 
     @Override
+    public boolean isInSide(double px, double py) {
+        double cx = this.getX();
+        double cy = this.getY();
+        double radius = getShapeSize()/2;
+        double distX = px - cx;
+        double distY = py - cy;
+        double distance =((distX*distX)+(distY*distY));
+        if (distance<=radius*radius){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
     public  String svg() {
         return "<circle cx=\""+getX()+"\" cy=\""+getY()+"\" r=\""+getShapeSize()/2+"\" " +
                 "fill=\""+goodToHaveColor.toHexString(getShapeColor())+"\" />";
 
     }
+
+
 }
+

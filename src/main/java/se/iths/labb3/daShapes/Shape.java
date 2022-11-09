@@ -13,7 +13,7 @@ public abstract class Shape {
     private final double x;
     private final double y;
     private final double shapeSize;
-    private final Color shapeColor;
+    private Color shapeColor;
 
     public Shape(double x, double y, double shapeSize, Color shapeColor) {
         this.x = x;
@@ -39,9 +39,14 @@ public abstract class Shape {
         return shapeColor;
     }
 
+    public void setShapeColor(Color shapeColor) {
+        this.shapeColor = shapeColor;
+    }
+
     public void drawShape(GraphicsContext context){
 
     }
+    public abstract boolean isInSide(double x, double y );
     public static double sizeOfTheShape(enumSize size){
         if(size == enumSize.SMALL)
             return 50.0;

@@ -44,10 +44,21 @@ public class HelloController {
         fc.setInitialDirectory(new File("C:\\Users\\Simon"));
     }
     public void drawTheShape(MouseEvent mouseEvent) {
-        Shape shape = Shape.createShape(forTheShape.getValue(),
-                mouseEvent.getX(), mouseEvent.getY(),
-                Shape.sizeOfTheShape(forTheSize.getValue()),colorPicker.getValue());
-        model.to.add(shape);
+        if (mouseEvent.isControlDown()){
+            for (Shape shape: model.to){
+                if (shape.isInSide(mouseEvent.getX(), mouseEvent.getY())){
+                    shape.setShapeColor(colorPicker.getValue());
+                }
+
+
+            }
+
+        }else {
+            Shape shape = Shape.createShape(forTheShape.getValue(),
+                    mouseEvent.getX(), mouseEvent.getY(),
+                    Shape.sizeOfTheShape(forTheSize.getValue()), colorPicker.getValue());
+            model.to.add(shape);
+        }
         redraw();
     }
     public void OnUndoAction(ActionEvent actionEvent) {
