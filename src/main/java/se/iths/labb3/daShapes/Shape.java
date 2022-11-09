@@ -8,7 +8,8 @@ import se.iths.labb3.model.Model;
 import se.iths.labb3.theBestEnums.enumShapes;
 import se.iths.labb3.theBestEnums.enumSize;
 
-public class Shape {
+public abstract class Shape {
+    convertColorToHex goodToHaveColor = new convertColorToHex();
     private final double x;
     private final double y;
     private final double shapeSize;
@@ -41,7 +42,6 @@ public class Shape {
     public void drawShape(GraphicsContext context){
 
     }
-
     public static double sizeOfTheShape(enumSize size){
         if(size == enumSize.SMALL)
             return 50.0;
@@ -58,4 +58,8 @@ public class Shape {
         };
     }
 
+    public  String svg(){
+        return "<circle cx=\"0\" cy=\"0\" r=\"0\" fill=\"#B3B31A\" />"+
+                "<rect x=\"0\" y=\"0\" width=\"0\" height=\"0\" fill=\"#B3B31A\"/>";
+    }
 }

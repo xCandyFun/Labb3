@@ -11,6 +11,14 @@ public class Rectangle extends Shape{
 
     public void drawShape(GraphicsContext context) {
         context.setFill(this.getShapeColor());
-        context.fillRect(this.getX()- getShapeSize()/2, this.getY()- getShapeSize()/2, this.getShapeSize(), this.getShapeSize());
+        context.fillRect(this.getX()- getShapeSize()/2, this.getY()- getShapeSize()/2,
+                this.getShapeSize(), this.getShapeSize());
+    }
+
+    @Override
+    public String svg() {
+        return "<rect x=\""+getX()+"\" y=\""+getY()+"\" width=\""+ getShapeSize()+"\" " +
+                "height=\""+getShapeSize()+"\" fill=\""+goodToHaveColor.toHexString(getShapeColor())+"\"/>";
     }
 }
+

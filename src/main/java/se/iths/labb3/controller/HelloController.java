@@ -14,6 +14,11 @@ import se.iths.labb3.daShapes.Shape;
 import se.iths.labb3.model.Model;
 import se.iths.labb3.theBestEnums.enumShapes;
 import se.iths.labb3.theBestEnums.enumSize;
+import java.nio.file.Path;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.nio.file.Files;
 
 
 public class HelloController {
@@ -26,8 +31,10 @@ public class HelloController {
     public ColorPicker colorPicker;
 
     public GraphicsContext context;
+    public VBox vBox;
 
     Model model = new Model();
+    FileChooser fc = new FileChooser();
 
     public void initialize(){
         forTheShape.setItems(Model.shapeList);
@@ -35,20 +42,18 @@ public class HelloController {
         colorPicker.valueProperty().bindBidirectional(model.currentColorProperty());
         context = drawOnCanvas.getGraphicsContext2D();
         undoButton.disableProperty().bind(Bindings.equal(0, model.to.sizeProperty()));
-        //paneColor.setStyle("-fx-background-color: #C0C0C0;");
+        fc.setInitialDirectory(new File("C:\\Users\\Simon"));
     }
 
 
 
     public void drawTheShape(MouseEvent mouseEvent) {
         Shape shape = Shape.createShape(forTheShape.getValue(),
-                mouseEvent.getX(), mouseEvent.getY(),Shape.sizeOfTheShape(forTheSize.getValue()),colorPicker.getValue());
+                mouseEvent.getX(), mouseEvent.getY(),
+                Shape.sizeOfTheShape(forTheSize.getValue()),colorPicker.getValue());
         model.to.add(shape);
         redraw();
     }
-
-
-
     public void OnUndoAction(ActionEvent actionEvent) {
         model.to.remove(model.to.size()-1);
         redraw();
@@ -62,11 +67,31 @@ public class HelloController {
         }
     }
 
+
     public void OnSaveAction(ActionEvent actionEvent) {
+        Window stage = vBox.getScene().getWindow();
+        fc.setTitle("Save Dialog");
+        fc.setInitialFileName("mysave");
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("SVG file", "*.svg"));
+        File file = fc.showSaveDialog(stage);
+        if( file != null)
+            model.saveToFile(file.toPath());
     }
+
+}
+
+
+
+
 
     //todo save to svg
     //todo change color on shape when draw
     //todo make 2 tests
 
-}
+
+
+
+
+
+
+
