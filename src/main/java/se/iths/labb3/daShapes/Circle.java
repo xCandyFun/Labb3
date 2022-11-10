@@ -14,7 +14,6 @@ public class Circle extends Shape{
         context.fillOval(this.getX() - getShapeSize()/2,
                 this.getY()- getShapeSize()/2, this.getShapeSize(), this.getShapeSize());
     }
-
     @Override
     public boolean isInSide(double px, double py) {
         double cx = this.getX();
@@ -28,14 +27,11 @@ public class Circle extends Shape{
         }
         return false;
     }
-
     @Override
     public  String svg() {
         return "<circle cx=\""+getX()+"\" cy=\""+getY()+"\" r=\""+getShapeSize()/2+"\" " +
                 "fill=\""+goodToHaveColor.toHexString(getShapeColor())+"\" />";
 
     }
-
-
 }
 

@@ -7,7 +7,6 @@ public class convertColorToHex {
         String in = Integer.toHexString((int) Math.round(val * 255));
         return in.length() == 1 ? "0" + in : in;
     }
-
     public String toHexString(Color value) {
         return "#" + (format(value.getRed()) + format(value.getGreen()) + format(value.getBlue()) +
                 format(value.getOpacity()))

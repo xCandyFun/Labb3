@@ -1,7 +1,6 @@
 package se.iths.labb3.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -14,13 +13,11 @@ import se.iths.labb3.daShapes.Shape;
 import se.iths.labb3.model.Model;
 import se.iths.labb3.theBestEnums.enumShapes;
 import se.iths.labb3.theBestEnums.enumSize;
-import java.nio.file.Path;
-import javax.imageio.ImageIO;
+
 import java.io.File;
-import java.nio.file.Files;
 
 
-public class HelloController {
+public class DrawController {
     public ChoiceBox<enumShapes> forTheShape;
     public ChoiceBox<enumSize> forTheSize;
     public Canvas drawOnCanvas;
@@ -49,10 +46,7 @@ public class HelloController {
                 if (shape.isInSide(mouseEvent.getX(), mouseEvent.getY())){
                     shape.setShapeColor(colorPicker.getValue());
                 }
-
-
             }
-
         }else {
             Shape shape = Shape.createShape(forTheShape.getValue(),
                     mouseEvent.getX(), mouseEvent.getY(),
@@ -61,7 +55,7 @@ public class HelloController {
         }
         redraw();
     }
-    public void OnUndoAction(ActionEvent actionEvent) {
+    public void onUndoAction(ActionEvent actionEvent) {
         model.to.remove(model.to.size()-1);
         redraw();
     }
@@ -81,6 +75,4 @@ public class HelloController {
         if( file != null)
             model.saveToFile(file.toPath());
     }
-//todo change color on shape when draw
-//todo make 2 tests
 }

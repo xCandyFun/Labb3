@@ -1,10 +1,7 @@
 package se.iths.labb3.daShapes;
 
-import javafx.css.Size;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import se.iths.labb3.controller.HelloController;
-import se.iths.labb3.model.Model;
 import se.iths.labb3.theBestEnums.enumShapes;
 import se.iths.labb3.theBestEnums.enumSize;
 
@@ -62,9 +59,8 @@ public abstract class Shape {
             case CIRCLE -> new Circle(x,y,shapeSize,color);
         };
     }
-
     public  String svg(){
-        return "<circle cx=\"0\" cy=\"0\" r=\"0\" fill=\"#B3B31A\" />"+
-                "<rect x=\"0\" y=\"0\" width=\"0\" height=\"0\" fill=\"#B3B31A\"/>";
+        return "<circle cx=\"0\" cy=\"0\" r=\"0\" fill=\"Lime\" />"+
+                "<rect x=\"0\" y=\"0\" width=\"0\" height=\"0\" fill=\"Lime\"/>";
     }
 }

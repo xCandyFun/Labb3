@@ -1,19 +1,15 @@
 package se.iths.labb3.model;
 
-import javafx.beans.Observable;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import se.iths.labb3.controller.HelloController;
 import se.iths.labb3.daShapes.Shape;
 import se.iths.labb3.theBestEnums.enumShapes;
 import se.iths.labb3.theBestEnums.enumSize;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -43,7 +39,6 @@ public class Model {
     public void setCurrentColor(Color currentColor) {
         this.currentColor.set(currentColor);
     }
-
     public void saveToFile(Path file) {
         StringBuffer sb = new StringBuffer();
         sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>");
@@ -58,6 +53,4 @@ public class Model {
             throw new RuntimeException(e);
         }
     }
-
-
 }
