@@ -38,7 +38,8 @@ public class DrawController {
         colorPicker.valueProperty().bindBidirectional(model.currentColorProperty());
         context = drawOnCanvas.getGraphicsContext2D();
         undoButton.disableProperty().bind(Bindings.equal(0, model.to.sizeProperty()));
-        fc.setInitialDirectory(new File("C:\\Users\\Simon"));
+        String homeFolder = System.getProperty("user.home");
+        fc.setInitialDirectory(new File(homeFolder));
     }
     public void drawTheShape(MouseEvent mouseEvent) {
         if (mouseEvent.isControlDown()){
