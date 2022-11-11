@@ -71,7 +71,7 @@ public class DrawController {
         Window stage = vBox.getScene().getWindow();
         fc.setTitle("Save Dialog");
         fc.setInitialFileName("mysave");
-        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("SVG file", "*.svg"));
+        fc.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("SVG file", "*.SVG"));
         File file = fc.showSaveDialog(stage);
         if( file != null)
             model.saveToFile(file.toPath());

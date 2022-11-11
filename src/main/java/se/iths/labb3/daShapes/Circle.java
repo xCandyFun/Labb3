@@ -30,7 +30,7 @@ public class Circle extends Shape{
     @Override
     public  String svg() {
         return "<circle cx=\""+getX()+"\" cy=\""+getY()+"\" r=\""+getShapeSize()/2+"\" " +
-                "fill=\""+goodToHaveColor.toHexString(getShapeColor())+"\" />";
+                "fill=\""+goodToHaveColor.toHexString(getShapeColor())+"\" />\n";
 
     }
 }

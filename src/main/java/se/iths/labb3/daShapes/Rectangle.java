@@ -29,6 +29,6 @@ public class Rectangle extends Shape{
     @Override
     public String svg() {
         return "<rect x=\""+getX()+"\" y=\""+getY()+"\" width=\""+ getShapeSize()+"\" " +
-                "height=\""+getShapeSize()+"\" fill=\""+goodToHaveColor.toHexString(getShapeColor())+"\"/>";
+                "height=\""+getShapeSize()+"\" fill=\""+goodToHaveColor.toHexString(getShapeColor())+"\"/>\n";
     }
 }
